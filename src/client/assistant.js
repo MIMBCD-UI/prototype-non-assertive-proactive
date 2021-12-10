@@ -1,6 +1,11 @@
 // Assistant Switch 
 function assistantSwitch() {
 
+    if ($("#explainBtn").data("executing")){
+        $("#switchInput").prop("checked",true);
+        return;
+    }
+
     var assistant_block_width = $('.assistant_block').width();
     if (assistant_block_width < 200) {
         $('.assistant_block')
@@ -35,16 +40,43 @@ function assistantSwitch() {
     }
 
     function assis_explanation_animation(){
-        $(".covariable_n_btn").slideToggle("slow", "linear", function () {
+        if ($(".covariable_n_btn").css("display") != "none" || $("#switchInput").prop("checked") == true)
+            $(".covariable_n_btn").slideToggle("slow", "linear", function () {
 
-            if ($("#switchInput").prop("checked") == false) {
-                $('.assistant_block_covariables').animate({
-                    height: "0px",
-                    borderWidth:"0px",
-                    padding: "0px"
-                })
-            }
+                if ($("#switchInput").prop("checked") == false) {
+                    $('.assistant_block_covariables').animate({
+                        height: "0px",
+                        borderWidth:"0px",
+                        padding: "0px"
+                    })
+                }
+            });
+    }
+}
+
+function assis_explanation_animation_btn() {
+    if ($(".covariable_n_btn").css("display") == "none"){
+        $('.assistant_block_covariables')
+            .animate({
+                height: "100%",
+                borderWidth: "1px",
+                padding: "4px"
+            }, 400, function () {
+                $(".covariable_n_btn").slideToggle("slow", "linear", $("#explainBtn").removeData("executing"));
+            });
+
+        
+    }else{
+        $(".covariable_n_btn").slideToggle("slow", "linear" , function () {
+            $('.assistant_block_covariables').animate({
+                height: "0px",
+                borderWidth: "0px",
+                padding: "0px"
+            }, 400, function () {
+                $("#explainBtn").removeData("executing");
+            } );
         });
+        
     }
 }
 
