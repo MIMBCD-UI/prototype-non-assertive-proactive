@@ -1,4 +1,4 @@
-Copyright © 2019 [Instituto Superior Técnico (IST)](https://tecnico.ulisboa.pt/)
+Copyright © 2021 [Instituto Superior Técnico (IST)](https://tecnico.ulisboa.pt/)
 
 # License Summary
 
