@@ -2,7 +2,7 @@
   "name": "prototype-lesion-bbs",
   "version": "0.0.1",
   "main": "src/js/index.js",
-  "description": "Lesion Bounding Boxes (BBs) Prototype",
+  "description": "Prototype",
   "keywords": [
     "DICOM",
     "WADO",
@@ -24,7 +24,7 @@
     "build": "webpack -p &",
     "build:local": "webpack -p &",
     "build:multi": "webpack -p &",
-    "build:uta10": "webpack -p &",
+    "build:uta11": "webpack -p &",
     "create:sl": "touch src/common/studyList.json",
     "clean:dataset": "rimraf dataset/*",
     "clean:studies": "rimraf src/common/studies/*",
